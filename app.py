@@ -34,7 +34,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-
+#only change here
 def processRequest(req):
     if req.get("result").get("action") != "yahooWeatherForecast":
         return {}
@@ -57,7 +57,7 @@ def makeYqlQuery(req):
         return None
 
     return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
-
+#this is a comment
 
 def makeWebhookResult(data):
     query = data.get('query')
